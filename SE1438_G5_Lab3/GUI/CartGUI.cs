@@ -14,6 +14,25 @@ namespace SE1438_G5_Lab3.GUI
         public CartGUI()
         {
             InitializeComponent();
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CheckoutGUI checkout = new CheckoutGUI();
+            checkout.Show();
         }
     }
 }

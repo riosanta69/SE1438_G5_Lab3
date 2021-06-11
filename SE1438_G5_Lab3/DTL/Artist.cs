@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SE1438_G5_Lab3.DTL
 {
-    class Artist
+   public class Artist
     {
         private int artistID;
         private string name;

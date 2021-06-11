@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SE1438_G5_Lab3.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,18 @@ namespace SE1438_G5_Lab3.GUI
         public ReportGUI()
         {
             InitializeComponent();
+            dataGridView1.DataSource = OrderDAO.GetDataTable();
+            dataGridView2.DataSource = OrderDetailDAO.GetDataTable();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

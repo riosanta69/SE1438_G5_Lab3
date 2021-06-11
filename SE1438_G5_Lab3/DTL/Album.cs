@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SE1438_G5_Lab3.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,5 +51,10 @@ namespace SE1438_G5_Lab3.DTL
         string albumUrl;
 
 
+
+        public static bool Delete(Album album)
+        {
+            return AlbumDAO.Delete(album);
+        }
     }
 }

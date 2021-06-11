@@ -40,6 +40,8 @@ namespace SE1438_G5_Lab3.DAL
             return albums.AsEnumerable();
 
         }
+
+
         public static DataTable GetDataTable()
         {
             string sql = "select * from Albums";

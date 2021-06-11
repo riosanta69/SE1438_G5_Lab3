@@ -60,11 +60,11 @@
     <Compile Include="DTL\Order.cs" />
     <Compile Include="DTL\OrderDetail.cs" />
     <Compile Include="DTL\User.cs" />
-    <Compile Include="MainGUI.cs">
+    <Compile Include="GUI\AlbumGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainGUI.Designer.cs">
-      <DependentUpon>MainGUI.cs</DependentUpon>
+    <Compile Include="GUI\AlbumGUI.Designer.cs">
+      <DependentUpon>AlbumGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\AboutGUI.cs">
       <SubType>Form</SubType>
@@ -102,6 +102,12 @@
     <Compile Include="GUI\LoginGUI.Designer.cs">
       <DependentUpon>LoginGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\MainGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\MainGUI.Designer.cs">
+      <DependentUpon>MainGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ReportGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,8 +122,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainGUI.resx">
+    <EmbeddedResource Include="GUI\AboutGUI.resx">
+      <DependentUpon>AboutGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\AlbumAddGUI.resx">
+      <DependentUpon>AlbumAddGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\AlbumDetailGUI.resx">
+      <DependentUpon>AlbumDetailGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\AlbumGUI.resx">
+      <DependentUpon>AlbumGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CartGUI.resx">
+      <DependentUpon>CartGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CheckoutGUI.resx">
+      <DependentUpon>CheckoutGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LoginGUI.resx">
+      <DependentUpon>LoginGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\MainGUI.resx">
       <DependentUpon>MainGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ReportGUI.resx">
+      <DependentUpon>ReportGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\StoreGUI.resx">
+      <DependentUpon>StoreGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,7 +160,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -138,6 +173,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Images\report.PNG" />
+    <None Include="Images\cart.PNG" />
+    <None Include="Images\about.PNG" />
+    <None Include="Images\album.PNG" />
+    <Content Include="Images\e7b4b670-4436-49de-b3f2-1c5505f93baa.gif" />
+    <Content Include="Images\home-showcase.png" />
+    <None Include="Images\login.PNG" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\placeholder.gif" />
+    <None Include="Images\store.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
