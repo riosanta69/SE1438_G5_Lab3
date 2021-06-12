@@ -197,6 +197,7 @@ namespace SE1438_G5_Lab3.GUI
             // 
             this.textBox1.Location = new System.Drawing.Point(258, 73);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(200, 20);
             this.textBox1.TabIndex = 15;
             // 
@@ -258,17 +259,17 @@ namespace SE1438_G5_Lab3.GUI
             // 
             // textBox10
             // 
-            this.textBox10.Enabled = false;
             this.textBox10.Location = new System.Drawing.Point(258, 465);
             this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(200, 20);
             this.textBox10.TabIndex = 24;
             // 
             // textBox11
             // 
-            this.textBox11.Enabled = false;
             this.textBox11.Location = new System.Drawing.Point(258, 547);
             this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(200, 20);
             this.textBox11.TabIndex = 25;
             // 

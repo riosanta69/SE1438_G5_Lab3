@@ -31,7 +31,16 @@ namespace SE1438_G5_Lab3.GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SelectionRange sr = new SelectionRange();
+            sr.Start = DateTime.Parse(this.textBox1.Text);
+            sr.End = DateTime.Parse(this.textBox2.Text);
+            this.monthCalendar1.SelectionRange = sr;
+        }
 
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            this.textBox1.Text = monthCalendar1.SelectionRange.Start.Date.ToShortDateString();
+            this.textBox2.Text = monthCalendar1.SelectionRange.End.Date.ToShortDateString();
         }
     }
 }

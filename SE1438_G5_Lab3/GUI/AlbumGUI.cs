@@ -71,7 +71,7 @@ namespace SE1438_G5_Lab3.GUI
             a.ShowDialog();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex < 0 || e.ColumnIndex < 0) return;
             Album album = ((List<Album>)dataGridView1.DataSource)[e.RowIndex];

@@ -107,9 +107,9 @@ namespace SE1438_G5_Lab3.GUI
             // 
             // textBox3
             // 
-            this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(188, 288);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(154, 20);
             this.textBox3.TabIndex = 7;
             // 

@@ -52,6 +52,7 @@ namespace SE1438_G5_Lab3.GUI
             this.monthCalendar1.Location = new System.Drawing.Point(7, 8);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // label1
             // 
@@ -93,6 +94,7 @@ namespace SE1438_G5_Lab3.GUI
             // 
             this.textBox1.Location = new System.Drawing.Point(69, 211);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(148, 20);
             this.textBox1.TabIndex = 5;
             // 
@@ -100,6 +102,7 @@ namespace SE1438_G5_Lab3.GUI
             // 
             this.textBox2.Location = new System.Drawing.Point(69, 255);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(148, 20);
             this.textBox2.TabIndex = 6;
             // 
