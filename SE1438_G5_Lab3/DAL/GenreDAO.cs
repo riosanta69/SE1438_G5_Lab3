@@ -42,6 +42,13 @@ namespace SE1438_G5_Lab3.DAL
             return DAO.GetDataTable(sql);
 
         }
+
+        public static DataTable GetNames()
+        {
+            string sql = "select Name from Genres";
+            return DAO.GetDataTable(sql);
+        }
+
         public static Genre GetGenreByID(int id)
         {
             Genre genre = null;

@@ -14,13 +14,19 @@ namespace SE1438_G5_Lab3.GUI
 {
     public partial class StoreGUI : Form
     {
-
+        private DataTable albumDataTable;
 
         public StoreGUI()
         {
             InitializeComponent();
             dataGridView1.DataSource = GenreDAO.GetDataTable();
-            dataGridView2.DataSource = AlbumDAO.GetDataTable();
+            dataGridView1.Columns["GenreID"].Visible = false;
+            dataGridView1.Columns["Description"].Visible = false;
+
+            albumDataTable = AlbumDAO.GetDataTable();
+
+            dataGridView1_CellClick_helper(1);
+
             bindGrid1();
         }
         private void bindGrid1()
@@ -46,9 +52,33 @@ namespace SE1438_G5_Lab3.GUI
             {
                 int albumID = (int)dataGridView2.Rows[e.RowIndex].Cells["albumID"].Value;
                 AlbumDetailGUI formdetail = new AlbumDetailGUI(albumID);
-                formdetail.Show();
+                DialogResult dr = formdetail.ShowDialog();
+                if(dr == DialogResult.OK)
+                {
+                    var cart = ShoppingCartDAO.GetCart();
+                    cart.AddToCart(albumID);
+                    CartGUI fc = new CartGUI();
+                    fc.ShowDialog();
+                }
             }
 
+        }
+        
+        private void dataGridView1_CellClick_helper(int selectedGenreID)
+        {
+            DataRow[] dataRows = albumDataTable.Select("GenreID = " + selectedGenreID);
+
+            if (dataRows.Length > 0)
+                dataGridView2.DataSource = dataRows.CopyToDataTable();
+            else dataGridView2.DataSource = new DataTable();
+        }
+
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedGenreID = (int)dataGridView1.Rows[e.RowIndex].Cells["GenreID"].Value;
+
+            dataGridView1_CellClick_helper(selectedGenreID);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SE1438_G5_Lab3.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,9 @@ namespace SE1438_G5_Lab3.GUI
         public MainGUI()
         {
             InitializeComponent();
-            
+            displayMenu();
+
+
         }
         private void Embed(Panel p, Form f)
         {
@@ -39,7 +42,16 @@ namespace SE1438_G5_Lab3.GUI
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Embed(panel1, new LoginGUI());
+            if(isLoggedIn())
+            {
+                Variables.UserName = null;
+                displayMenu();
+            } else
+            {
+                LoginGUI login = new LoginGUI(this);
+                login.ShowDialog();
+            }
+
         }
 
         private void albumToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,6 +67,32 @@ namespace SE1438_G5_Lab3.GUI
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Embed(panel1, new AboutGUI());
+        }
+
+        private bool isLoggedIn()
+        {
+            return Variables.UserName != null && Variables.UserName != "";
+        }
+
+        public void displayMenu()
+        {
+            if (!isLoggedIn())
+            {
+                loginToolStripMenuItem.Text = "Login";
+
+                albumToolStripMenuItem.Visible = false;
+                reportToolStripMenuItem.Visible = false;
+            }
+            else
+            {
+                loginToolStripMenuItem.Text = "Logout (" + Variables.UserName + ")";
+
+                albumToolStripMenuItem.Visible = true;
+                reportToolStripMenuItem.Visible = true;
+            }
+            var cart = ShoppingCartDAO.GetCart();
+            string cartSummary = "Cart (" + cart.GetCount() + ")";
+            cartToolStripMenuItem1.Text = cartSummary;
         }
     }
 }

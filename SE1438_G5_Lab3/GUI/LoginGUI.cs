@@ -12,23 +12,48 @@ namespace SE1438_G5_Lab3.GUI
 {
     public partial class LoginGUI : Form
     {
-        public LoginGUI()
+        private MainGUI mainForm;
+
+        public LoginGUI(MainGUI mainForm)
         {
             InitializeComponent();
-            textBox1.Text = UserDAO.GetDataTable().TableName;
-            textBox2.Text = UserDAO.GetDataTable().TableName;
+            this.mainForm = mainForm;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = textBox1.Text;
-            string password = textBox2.Text;
-           
+            var user = UserDAO.GetUsers()
+                .Where(u => u.UserName == textBox1.Text && u.Password == textBox2.Text)
+                .FirstOrDefault();
+            if (user == null)
+                MessageBox.Show("User does not exist!");
+            else
+            {
+                Variables.UserName = user.UserName;
+                Variables.Role = user.Role;
+                ShoppingCartDAO.UserName = user.UserName;
+                var cart = ShoppingCartDAO.GetCart();
+                cart.MigrateCart();
+            }
+            this.Close();
+            this.mainForm.displayMenu();
+           // MainGUI main = new MainGUI();
+           // main.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

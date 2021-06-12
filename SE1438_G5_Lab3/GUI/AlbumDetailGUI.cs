@@ -14,10 +14,12 @@ namespace SE1438_G5_Lab3.GUI
 {
     public partial class AlbumDetailGUI : Form
     {
+        private Album album;
+
         public AlbumDetailGUI(int albumID)
         {
             InitializeComponent();
-            Album album = AlbumDAO.GetAlbumByID(albumID);
+            album = AlbumDAO.GetAlbumByID(albumID);
 
             textBox1.Text = album.Title;
             textBox2.Text = album.Price.ToString();
@@ -47,14 +49,17 @@ namespace SE1438_G5_Lab3.GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CartGUI cart = new CartGUI();
-            cart.Show();
+            if(album != null)
+            {
+                ShoppingCartDAO.GetCart().AddToCart(album.AlbumID);
+                CartGUI cart = new CartGUI();
+                cart.ShowDialog();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            StoreGUI store = new StoreGUI();
-            store.Show();
+            this.Close();
         }
     }
 }

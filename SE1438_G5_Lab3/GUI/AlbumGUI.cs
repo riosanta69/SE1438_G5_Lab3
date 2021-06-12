@@ -68,7 +68,7 @@ namespace SE1438_G5_Lab3.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             AlbumAddGUI a = new AlbumAddGUI();
-            a.Show();
+            a.ShowDialog();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -84,11 +84,13 @@ namespace SE1438_G5_Lab3.GUI
                 if (result == DialogResult.Yes)
                 {
                     bool count = Album.Delete(album);
-                    if(count == true)
+                    if (count == true)
                     {
                         MessageBox.Show("Delete complete !");
-             
+
                     }
+                    else
+                        MessageBox.Show("Can not delete this album!");
                 }
 
             }
@@ -96,14 +98,14 @@ namespace SE1438_G5_Lab3.GUI
             {
                 int albumID =(int) dataGridView1.Rows[e.RowIndex].Cells["albumID"].Value;
                 AlbumDetailGUI formdetail = new AlbumDetailGUI(albumID);
-                formdetail.Show();
+                formdetail.ShowDialog();
             }
             if(e.ColumnIndex == dataGridView1.Columns["Edit"].Index)
             {
                 Genre genre = genres.Find(g => g.GenreID == album.GenreID);
                 Artist artist = artists.Find(a => a.ArtistID == album.ArtistID);
                 AlbumAddGUI newform = new AlbumAddGUI(album, genres, artists ,genre,artist);
-                newform.Show();
+                newform.ShowDialog();
             }
 
         }
@@ -111,13 +113,13 @@ namespace SE1438_G5_Lab3.GUI
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutGUI about = new AboutGUI();
-            about.Show();
+            about.ShowDialog();
         }
 
         private void cartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CartGUI cart = new CartGUI();
-            cart.Show();
+            cart.ShowDialog();
         }
     }
 }

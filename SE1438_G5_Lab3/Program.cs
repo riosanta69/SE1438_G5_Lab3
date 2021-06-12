@@ -17,7 +17,7 @@ namespace SE1438_G5_Lab3
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainGUI());
-            Application.Run(new GUI.MainGUI());
+            Application.Run(new MainGUI());
             //Application.Run(new ReportGUI());
         }
     }
