@@ -21,9 +21,6 @@ namespace SE1438_G5_Lab3.GUI
             InitializeComponent();
             dataGridView1.DataSource = AlbumDAO.GetAlbums();
 
-            genres = (List<Genre>)GenreDAO.GetGenres();
-            artists = (List<Artist>)ArtistDAO.GetArtists();
-
             bindGrid1();
             bindGrid2();
             bindGrid3();
@@ -104,7 +101,7 @@ namespace SE1438_G5_Lab3.GUI
             {
                 Genre genre = genres.Find(g => g.GenreID == album.GenreID);
                 Artist artist = artists.Find(a => a.ArtistID == album.ArtistID);
-                AlbumAddGUI newform = new AlbumAddGUI(album, genres, artists ,genre,artist);
+                AlbumAddGUI newform = new AlbumAddGUI(album,genre,artist);
                 newform.ShowDialog();
             }
 

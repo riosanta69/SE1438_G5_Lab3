@@ -12,9 +12,8 @@ namespace SE1438_G5_Lab3.DAL
     {
         public static bool Insert(Order order)
         {
-            SqlCommand cmd = new SqlCommand("Insert into Orders(OrderId,OrderDate,PromoCode,UserName,FirstName,LastName,Address,City,State,Country,Phone,Email,Total) " +
-               "Values(@OrderId,@OrderDate,@PromoCode,@UserName,@FirstName,@LastName,@Address,@City,@State,@Country,@Phone,@Email,@Total)");
-            cmd.Parameters.AddWithValue("@OrderId", order.OrderID);
+            SqlCommand cmd = new SqlCommand("Insert into Orders(OrderDate,PromoCode,UserName,FirstName,LastName,Address,City,State,Country,Phone,Email,Total) " +
+               "Values(@OrderDate,@PromoCode,@UserName,@FirstName,@LastName,@Address,@City,@State,@Country,@Phone,@Email,@Total)");
             cmd.Parameters.AddWithValue("@OrderDate",order.OrderDate );
             cmd.Parameters.AddWithValue("@PromoCode",order.PromoCode );
             cmd.Parameters.AddWithValue("@UserName",order.UserName);
@@ -32,7 +31,12 @@ namespace SE1438_G5_Lab3.DAL
 
         internal static int GetMaxID()
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = new SqlCommand();
+
+            DataTable dataTable = DAO.GetDataTable("SELECT MAX(OrderId)" +
+                " FROM Orders");
+
+            return (int)dataTable.Rows[0][0];
         }
         public static DataTable GetDataTable()
         {

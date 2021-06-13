@@ -108,6 +108,7 @@
     <Compile Include="GUI\MainGUI.Designer.cs">
       <DependentUpon>MainGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\CheckoutValidate.cs" />
     <Compile Include="GUI\ReportGUI.cs">
       <SubType>Form</SubType>
     </Compile>

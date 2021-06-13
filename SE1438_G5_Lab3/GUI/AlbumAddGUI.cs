@@ -1,4 +1,5 @@
-﻿using SE1438_G5_Lab3.DTL;
+﻿using SE1438_G5_Lab3.DAL;
+using SE1438_G5_Lab3.DTL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,19 +14,32 @@ namespace SE1438_G5_Lab3.GUI
 {
     public partial class AlbumAddGUI : Form
     {
-        Album album;
-        Genre genre;
-        Artist artist;
+        //private string mode;
+        private Album album;
+        private Genre genre;
+        private Artist artist;
+
+        public List<Genre> Genres { get; }
+        public List<Artist> Artists { get; }
 
         public AlbumAddGUI()
         {
             InitializeComponent();
-            comboBox1.DisplayMember = "Name";
-            comboBox1.DataSource = genre;
-            //comboBox1.
-        }
 
-        public AlbumAddGUI(Album album, List<Genre> genres, List<Artist> artists, Genre genre, Artist artist)
+            List<Genre> genres = (List<Genre>)GenreDAO.GetGenres();
+            List<Artist> artists = (List<Artist>)ArtistDAO.GetArtists();
+
+            comboBox1.DataSource = genres;
+            comboBox1.DisplayMember = "Name";
+
+            comboBox2.DataSource = artists;
+            comboBox2.DisplayMember = "Name";
+
+            //mode = "add";
+        }
+ 
+
+        public AlbumAddGUI(Album album, Genre genre, Artist artist)
         {
             InitializeComponent();
             this.album = album;
@@ -33,23 +47,17 @@ namespace SE1438_G5_Lab3.GUI
             this.artist = artist;
             textBox1.Text = album.Title;
 
-            comboBox1.DataSource = genres;
-            comboBox1.DisplayMember = "Name";
+           
             comboBox1.SelectedIndex = comboBox1.FindStringExact(genre.Name);
-
-            comboBox2.DataSource = artists;
-            comboBox2.DisplayMember = "Name";
+            
             comboBox2.SelectedIndex = comboBox2.FindStringExact(artist.Name);
 
             textBox2.Text = album.Price.ToString();
             textBox3.Text = album.AlbumUrl;
-            //string path = album.AlbumUrl.Replace('/', '\\');
-            //pictureBox1.Image = Image.FromFile(getProjectPath() + path);
 
-
-
-
+            //mode = "edit";
         }
+
         private string getProjectPath()
         {
             string path = Application.StartupPath;
@@ -99,7 +107,35 @@ namespace SE1438_G5_Lab3.GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            //if(mode.Equals("add"))
+            //{
+                //AlbumDAO.Insert(new Album()
+                //{
+                    //Title = textBox1.Text,
+                    //Price = Double.Parse(textBox2.Text),
+                    //AlbumUrl = textBox3
+                    
+                //});
+
+            //} else if(mode.Equals("edit"))
+            //{
+                //AlbumDAO.Update(new Album() {
+                    //Title = textBox1.Text,
+                    //Price = Double.Parse(textBox2.Text),
+
+                //});
+
+            //}
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

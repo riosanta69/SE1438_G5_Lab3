@@ -64,8 +64,14 @@ namespace SE1438_G5_Lab3.GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CheckoutGUI checkout = new CheckoutGUI();
-            checkout.ShowDialog();
+            if(Variables.UserName != null)
+            {
+                CheckoutGUI checkout = new CheckoutGUI(new Order()
+                {
+                    UserName = Variables.UserName,
+                });
+                checkout.ShowDialog();
+            }
         }
     }
 }
