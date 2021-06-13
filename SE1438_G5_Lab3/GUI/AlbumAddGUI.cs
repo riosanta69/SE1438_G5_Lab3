@@ -69,6 +69,9 @@ namespace SE1438_G5_Lab3.GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string path = album.AlbumUrl.Replace('/', '\\');
+            pictureBox1.Image = Image.FromFile(getProjectPath() + path);
+
             OpenFileDialog opf = new OpenFileDialog
             {
                 InitialDirectory = getProjectPath() + "\\Images\\",
