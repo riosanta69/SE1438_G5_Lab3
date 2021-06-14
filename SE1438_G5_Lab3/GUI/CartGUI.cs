@@ -58,7 +58,9 @@ namespace SE1438_G5_Lab3.GUI
                 bindDataGridView1();
             } else if(e.ColumnIndex == dataGridView1.Columns["Detail"].Index)
             {
-                Close();
+                int albumID = (int)dataGridView1.Rows[e.RowIndex].Cells["albumID"].Value;
+                AlbumDetailGUI formdetail = new AlbumDetailGUI(albumID);
+                formdetail.ShowDialog();
             }
         }
 

@@ -191,6 +191,7 @@ namespace SE1438_G5_Lab3.GUI
             this.Controls.Add(this.label1);
             this.Name = "AlbumAddGUI";
             this.Text = "AlbumAddGUI";
+            this.Load += new System.EventHandler(this.AlbumAddGUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

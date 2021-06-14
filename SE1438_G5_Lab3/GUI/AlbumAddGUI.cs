@@ -14,7 +14,7 @@ namespace SE1438_G5_Lab3.GUI
 {
     public partial class AlbumAddGUI : Form
     {
-        private string mode;
+        //private string mode;
         private Album album;
         private Genre genre;
         private Artist artist;
@@ -35,27 +35,32 @@ namespace SE1438_G5_Lab3.GUI
             comboBox2.DataSource = artists;
             comboBox2.DisplayMember = "Name";
 
-            mode = "add";
+            //mode = "add";
         }
  
 
         public AlbumAddGUI(Album album, Genre genre, Artist artist)
         {
+            List<Genre> genres = (List<Genre>)GenreDAO.GetGenres();
+            List<Artist> artists = (List<Artist>)ArtistDAO.GetArtists();
             InitializeComponent();
             this.album = album;
             this.genre = genre;
             this.artist = artist;
             textBox1.Text = album.Title;
 
-           
+            comboBox1.DataSource = genres;
+            comboBox1.DisplayMember = "Name";
             comboBox1.SelectedIndex = comboBox1.FindStringExact(genre.Name);
-            
+
+            comboBox2.DataSource = artists;
+            comboBox2.DisplayMember = "Name";
             comboBox2.SelectedIndex = comboBox2.FindStringExact(artist.Name);
 
             textBox2.Text = album.Price.ToString();
             textBox3.Text = album.AlbumUrl;
 
-            mode = "edit";
+            //mode = "edit";
         }
 
         private string getProjectPath()
@@ -107,21 +112,7 @@ namespace SE1438_G5_Lab3.GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Album updatedAlbum = new Album()
-            {
-                Title = textBox1.Text,
-                Price = double.Parse(textBox2.Text),
-                AlbumUrl = textBox3.Text,
-            };
 
-            if (mode.Equals("add"))
-            {
-                AlbumDAO.Insert(updatedAlbum) ;
-
-            } else if(mode.Equals("edit"))
-            {
-                AlbumDAO.Update(updatedAlbum);
-            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -132,6 +123,34 @@ namespace SE1438_G5_Lab3.GUI
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void AlbumAddGUI_Load(object sender, EventArgs e)
+        {
+            button2.Click += addEvent;
+            button2.Click += editEvent;
+        }
+
+        private void editEvent(object sender, EventArgs e)
+        {
+            Album updatedAlbum = new Album()
+            {
+                Title = textBox1.Text,
+                Price = double.Parse(textBox2.Text),
+                AlbumUrl = textBox3.Text,
+            };
+            AlbumDAO.Update(updatedAlbum);
+        }
+
+        private void addEvent(object sender, EventArgs e)
+        {
+            Album addAlbum = new Album()
+            {
+                Title = textBox1.Text,
+                Price = double.Parse(textBox2.Text),
+                AlbumUrl = textBox3.Text,
+            };
+            AlbumDAO.Insert(addAlbum);
         }
     }
 }
