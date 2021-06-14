@@ -21,14 +21,14 @@ namespace SE1438_G5_Lab3.GUI
         {
             var cart = ShoppingCartDAO.GetCart();
             textBox1.Text = order.UserName;
-            textBox2.Text = "" + order.FirstName;
-            textBox3.Text = "" + order.LastName;
-            textBox4.Text = "" + order.Address;
-            textBox5.Text = "" + order.City;
-            textBox6.Text = "" + order.State;
-            textBox7.Text = "" + order.Country;
-            textBox8.Text = "" + order.Phone;
-            textBox9.Text = "" + order.Email;
+            textBox2.Text = "Quan" + order.FirstName;
+            textBox3.Text = "Nguyen" + order.LastName;
+            textBox4.Text = "Ha Noi" + order.Address;
+            textBox5.Text = "Ha Noi" + order.City;
+            textBox6.Text = "Ha Noi" + order.State;
+            textBox7.Text = "Viet Nam" + order.Country;
+            textBox8.Text = "0966 848 112" + order.Phone;
+            textBox9.Text = "quanndh130577@fpt.edu.vn" + order.Email;
             textBox10.Text = cart.GetTotal().ToString();
             textBox11.Text = "FREE" + order.PromoCode;
         }

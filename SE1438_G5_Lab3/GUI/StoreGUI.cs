@@ -80,5 +80,10 @@ namespace SE1438_G5_Lab3.GUI
 
             dataGridView1_CellClick_helper(selectedGenreID);
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
