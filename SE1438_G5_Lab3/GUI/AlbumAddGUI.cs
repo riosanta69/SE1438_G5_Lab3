@@ -14,7 +14,7 @@ namespace SE1438_G5_Lab3.GUI
 {
     public partial class AlbumAddGUI : Form
     {
-        //private string mode;
+        private string mode;
         private Album album;
         private Genre genre;
         private Artist artist;
@@ -35,7 +35,7 @@ namespace SE1438_G5_Lab3.GUI
             comboBox2.DataSource = artists;
             comboBox2.DisplayMember = "Name";
 
-            //mode = "add";
+            mode = "add";
         }
  
 
@@ -55,7 +55,7 @@ namespace SE1438_G5_Lab3.GUI
             textBox2.Text = album.Price.ToString();
             textBox3.Text = album.AlbumUrl;
 
-            //mode = "edit";
+            mode = "edit";
         }
 
         private string getProjectPath()
@@ -107,25 +107,21 @@ namespace SE1438_G5_Lab3.GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //if(mode.Equals("add"))
-            //{
-                //AlbumDAO.Insert(new Album()
-                //{
-                    //Title = textBox1.Text,
-                    //Price = Double.Parse(textBox2.Text),
-                    //AlbumUrl = textBox3
-                    
-                //});
+            Album updatedAlbum = new Album()
+            {
+                Title = textBox1.Text,
+                Price = double.Parse(textBox2.Text),
+                AlbumUrl = textBox3.Text,
+            };
 
-            //} else if(mode.Equals("edit"))
-            //{
-                //AlbumDAO.Update(new Album() {
-                    //Title = textBox1.Text,
-                    //Price = Double.Parse(textBox2.Text),
+            if (mode.Equals("add"))
+            {
+                AlbumDAO.Insert(updatedAlbum) ;
 
-                //});
-
-            //}
+            } else if(mode.Equals("edit"))
+            {
+                AlbumDAO.Update(updatedAlbum);
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

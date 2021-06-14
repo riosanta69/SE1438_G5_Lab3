@@ -13,9 +13,6 @@ namespace SE1438_G5_Lab3.GUI
 {
     public partial class AlbumGUI : Form
     {
-        private List<Genre> genres;
-        private List<Artist> artists;
-
         public AlbumGUI()
         {
             InitializeComponent();
@@ -99,6 +96,9 @@ namespace SE1438_G5_Lab3.GUI
             }
             if(e.ColumnIndex == dataGridView1.Columns["Edit"].Index)
             {
+                List<Genre> genres = (List<Genre>)GenreDAO.GetGenres();
+                List<Artist> artists = (List<Artist>)ArtistDAO.GetArtists();
+
                 Genre genre = genres.Find(g => g.GenreID == album.GenreID);
                 Artist artist = artists.Find(a => a.ArtistID == album.ArtistID);
                 AlbumAddGUI newform = new AlbumAddGUI(album,genre,artist);
