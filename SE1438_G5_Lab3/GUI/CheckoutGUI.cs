@@ -27,7 +27,7 @@ namespace SE1438_G5_Lab3.GUI
             txtCity.Text = "Ha Noi" + order.City;
             txtState.Text = "Ha Noi" + order.State;
             txtCountry.Text = "Viet Nam" + order.Country;
-            txtPhone.Text = "0966 848 112" + order.Phone;
+            txtPhone.Text = "0966848112" + order.Phone;
             txtEmail.Text = "quanndh130577@fpt.edu.vn" + order.Email;
             txtTotal.Text = cart.GetTotal().ToString();
             txtCode.Text = "FREE" + order.PromoCode;
@@ -54,6 +54,7 @@ namespace SE1438_G5_Lab3.GUI
                 })) {
                     MessageBox.Show("Order has been created!");
                     Close();
+                    CartGUI.GetCartGUI().bindDataGridView1();
                 }
             }
         }

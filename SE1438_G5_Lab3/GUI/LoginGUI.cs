@@ -12,12 +12,19 @@ namespace SE1438_G5_Lab3.GUI
 {
     public partial class LoginGUI : Form
     {
-        private MainGUI mainForm;
+        private static LoginGUI instance;
 
-        public LoginGUI(MainGUI mainForm)
+        private LoginGUI()
         {
             InitializeComponent();
-            this.mainForm = mainForm;
+        }
+
+        public static LoginGUI GetLoginGUI()
+        {
+            if (instance == null)
+                instance = new LoginGUI();
+
+            return instance;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -35,10 +42,9 @@ namespace SE1438_G5_Lab3.GUI
                 var cart = ShoppingCartDAO.GetCart();
                 cart.MigrateCart();
             }
-            this.Close();
-            this.mainForm.displayMenu();
-           // MainGUI main = new MainGUI();
-           // main.ShowDialog();
+
+            Close();
+            MainGUI.GetMainGui().displayMenu();
         }
 
         private void button2_Click(object sender, EventArgs e)

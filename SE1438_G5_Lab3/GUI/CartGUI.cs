@@ -13,13 +13,22 @@ namespace SE1438_G5_Lab3.GUI
 {
     public partial class CartGUI : Form
     {
-        public CartGUI()
+        private static CartGUI instance;
+        private CartGUI()
         {
             InitializeComponent();
-            bindDataGridView1();
         }
 
-        private void bindDataGridView1()
+        public static CartGUI GetCartGUI()
+        {
+            if (instance == null)
+                instance = new CartGUI();
+
+            instance.bindDataGridView1();
+            return instance;
+        }
+
+        public void bindDataGridView1()
         {
             var cart = ShoppingCartDAO.GetCart();
             var cartItems = cart.GetCartItems();
@@ -31,7 +40,7 @@ namespace SE1438_G5_Lab3.GUI
             int count = dataGridView1.Columns.Count;
             DataGridViewButtonColumn btnDetail = new DataGridViewButtonColumn()
             {
-               
+
                 Text = "Detail",
                 Name = "Detail",
                 UseColumnTextForButtonValue = true
@@ -42,12 +51,12 @@ namespace SE1438_G5_Lab3.GUI
             {
                 Text = "Remove from cart",
                 Name = "Remove",
-                
+
                 UseColumnTextForButtonValue = true
             };
             dataGridView1.Columns.Insert(count + 1, btnRemove);
         }
-        
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -57,7 +66,8 @@ namespace SE1438_G5_Lab3.GUI
                 ShoppingCartDAO.GetCart().RemoveFromCart(albumID);
                 bindDataGridView1();
                 MainGUI.GetMainGui().displayMenu();
-            } else if(e.ColumnIndex == dataGridView1.Columns["Detail"].Index)
+            }
+            else if (e.ColumnIndex == dataGridView1.Columns["Detail"].Index)
             {
                 int albumID = (int)dataGridView1.Rows[e.RowIndex].Cells["albumID"].Value;
                 AlbumDetailGUI formdetail = new AlbumDetailGUI(albumID);
@@ -67,13 +77,18 @@ namespace SE1438_G5_Lab3.GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(Variables.UserName != null)
+            if (Variables.UserName != null)
             {
                 CheckoutGUI checkout = new CheckoutGUI(new Order()
                 {
                     UserName = Variables.UserName,
                 });
                 checkout.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Login!");
+                LoginGUI.GetLoginGUI().ShowDialog();
             }
         }
     }

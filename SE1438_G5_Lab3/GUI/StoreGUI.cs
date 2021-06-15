@@ -57,8 +57,7 @@ namespace SE1438_G5_Lab3.GUI
                 {
                     var cart = ShoppingCartDAO.GetCart();
                     cart.AddToCart(albumID);
-                    CartGUI fc = new CartGUI();
-                    fc.ShowDialog();
+                    CartGUI.GetCartGUI().ShowDialog();
                 }
             }
 

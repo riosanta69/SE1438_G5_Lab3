@@ -37,8 +37,8 @@ namespace SE1438_G5_Lab3.GUI
                 Text = "Detail",
                 UseColumnTextForButtonValue = true
             };
-        int count = dataGridView1.Columns.Count;
-        dataGridView1.Columns.Insert(count, btnDetail);
+            int count = dataGridView1.Columns.Count;
+            dataGridView1.Columns.Insert(count, btnDetail);
         }
 
         private void bindGrid2()
@@ -76,12 +76,12 @@ namespace SE1438_G5_Lab3.GUI
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
             Album album = ((List<Album>)dataGridView1.DataSource)[e.RowIndex];
             if (e.ColumnIndex == dataGridView1.Columns["Delete"].Index)
             {
                 DialogResult result = MessageBox.Show("Do you want to delete this album?",
-     
+
                     "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question
                     );
                 if (result == DialogResult.Yes)
@@ -99,18 +99,18 @@ namespace SE1438_G5_Lab3.GUI
             }
             if (e.ColumnIndex == dataGridView1.Columns["Detail"].Index)
             {
-                int albumID =(int) dataGridView1.Rows[e.RowIndex].Cells["albumID"].Value;
+                int albumID = (int)dataGridView1.Rows[e.RowIndex].Cells["albumID"].Value;
                 AlbumDetailGUI formdetail = new AlbumDetailGUI(albumID);
                 formdetail.ShowDialog();
             }
-            if(e.ColumnIndex == dataGridView1.Columns["Edit"].Index)
+            if (e.ColumnIndex == dataGridView1.Columns["Edit"].Index)
             {
                 List<Genre> genres = (List<Genre>)GenreDAO.GetGenres();
                 List<Artist> artists = (List<Artist>)ArtistDAO.GetArtists();
 
                 Genre genre = genres.Find(g => g.GenreID == album.GenreID);
                 Artist artist = artists.Find(a => a.ArtistID == album.ArtistID);
-                AlbumAddGUI newform = new AlbumAddGUI(album,genre,artist);
+                AlbumAddGUI newform = new AlbumAddGUI(album, genre, artist);
                 newform.setAlbumGUI(this);
                 newform.ShowDialog();
             }
@@ -125,8 +125,7 @@ namespace SE1438_G5_Lab3.GUI
 
         private void cartToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CartGUI cart = new CartGUI();
-            cart.ShowDialog();
+            CartGUI.GetCartGUI().ShowDialog();
         }
     }
 }

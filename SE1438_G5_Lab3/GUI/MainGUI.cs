@@ -46,7 +46,7 @@ namespace SE1438_G5_Lab3.GUI
 
         private void cartToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Embed(panel1, new CartGUI());
+            Embed(panel1, CartGUI.GetCartGUI());
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
@@ -57,8 +57,7 @@ namespace SE1438_G5_Lab3.GUI
                 displayMenu();
             } else
             {
-                LoginGUI login = new LoginGUI(this);
-                login.ShowDialog();
+                LoginGUI.GetLoginGUI().ShowDialog();
             }
 
         }
