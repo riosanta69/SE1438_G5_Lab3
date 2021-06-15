@@ -27,6 +27,9 @@ namespace SE1438_G5_Lab3.GUI
         public void initialize()
         {
             dataGridView1.DataSource = AlbumDAO.GetAlbums();
+            dataGridView1.Columns["AlbumID"].Visible = false;
+            dataGridView1.Columns["ArtistID"].Visible = false;
+            dataGridView1.Columns["GenreID"].Visible = false;
         }
 
         private void bindGrid1()
