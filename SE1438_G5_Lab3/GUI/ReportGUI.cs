@@ -1,4 +1,5 @@
 ﻿using SE1438_G5_Lab3.DAL;
+using SE1438_G5_Lab3.DTL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,17 +14,30 @@ namespace SE1438_G5_Lab3.GUI
 {
     public partial class ReportGUI : Form
     {
+
+        private DataTable orderDetailTable;
         public ReportGUI()
         {
             InitializeComponent();
             dataGridView1.DataSource = OrderDAO.GetDataTable();
-            dataGridView2.DataSource = OrderDetailDAO.GetDataTable();
-
+            orderDetailTable = OrderDetailDAO.GetDataTable();
+            dataGridView2.DataSource = new DataTable();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if(e.RowIndex >= 0)
+            {
+                textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells["FirstName"].Value.ToString();
+                textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells["Country"].Value.ToString();
+                int selectedOrderID = (int)dataGridView1.Rows[e.RowIndex].Cells["OrderId"].Value;
 
+                DataRow[] dataRows = orderDetailTable.Select("OrderId = " + selectedOrderID);
+
+                if (dataRows.Length > 0)
+                    dataGridView2.DataSource = dataRows.CopyToDataTable();
+                else dataGridView2.DataSource = new DataTable();
+            }
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -53,6 +67,11 @@ namespace SE1438_G5_Lab3.GUI
             cmd.Parameters.AddWithValue("@fn", "%" + textBox3.Text.Trim() + "%");
             cmd.Parameters.AddWithValue("@c", "%" + textBox4.Text.Trim() + "%");
             dataGridView1.DataSource = DAO.GetDataTable(cmd);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

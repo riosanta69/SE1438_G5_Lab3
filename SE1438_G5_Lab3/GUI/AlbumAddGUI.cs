@@ -14,13 +14,20 @@ namespace SE1438_G5_Lab3.GUI
 {
     public partial class AlbumAddGUI : Form
     {
-        //private string mode;
+        private string mode;
         private Album album;
         private Genre genre;
         private Artist artist;
 
         public List<Genre> Genres { get; }
         public List<Artist> Artists { get; }
+
+        private AlbumGUI albumGUI;
+
+        public void setAlbumGUI(AlbumGUI albumGUI)
+        {
+            this.albumGUI = albumGUI;
+        }
 
         public AlbumAddGUI()
         {
@@ -35,7 +42,7 @@ namespace SE1438_G5_Lab3.GUI
             comboBox2.DataSource = artists;
             comboBox2.DisplayMember = "Name";
 
-            //mode = "add";
+            mode = "add";
         }
  
 
@@ -60,7 +67,9 @@ namespace SE1438_G5_Lab3.GUI
             textBox2.Text = album.Price.ToString();
             textBox3.Text = album.AlbumUrl;
 
-            //mode = "edit";
+            mode = "edit";
+            String path = album.AlbumUrl.Replace('/', '\\');
+            pictureBox1.Image = Image.FromFile(getProjectPath() + path);
         }
 
         private string getProjectPath()
@@ -82,8 +91,7 @@ namespace SE1438_G5_Lab3.GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string path = album.AlbumUrl.Replace('/', '\\');
-            pictureBox1.Image = Image.FromFile(getProjectPath() + path);
+        
 
             OpenFileDialog opf = new OpenFileDialog
             {
@@ -101,6 +109,7 @@ namespace SE1438_G5_Lab3.GUI
                 string fileDest = getProjectPath() + "\\Images\\" + filename;
                 File.Copy(opf.FileName, fileDest);
                 textBox3.Text = "/Images/" + filename;
+                pictureBox1.Image = Image.FromFile(fileDest);
             }
 
         }
@@ -127,19 +136,23 @@ namespace SE1438_G5_Lab3.GUI
 
         private void AlbumAddGUI_Load(object sender, EventArgs e)
         {
-            button2.Click += addEvent;
-            button2.Click += editEvent;
+            if(mode.Equals("add"))
+                button2.Click += addEvent;
+            if(mode.Equals("edit"))
+                button2.Click += editEvent;
         }
 
         private void editEvent(object sender, EventArgs e)
         {
-            Album updatedAlbum = new Album()
-            {
-                Title = textBox1.Text,
-                Price = double.Parse(textBox2.Text),
-                AlbumUrl = textBox3.Text,
-            };
-            AlbumDAO.Update(updatedAlbum);
+
+            album.Title = textBox1.Text;
+            album.Price = double.Parse(textBox2.Text);
+            album.AlbumUrl = textBox3.Text;
+
+            if (AlbumDAO.Update(album)) {
+                albumGUI.initialize();
+                Close();
+            }
         }
 
         private void addEvent(object sender, EventArgs e)
@@ -149,8 +162,14 @@ namespace SE1438_G5_Lab3.GUI
                 Title = textBox1.Text,
                 Price = double.Parse(textBox2.Text),
                 AlbumUrl = textBox3.Text,
+                GenreID = ((Genre) comboBox1.SelectedItem).GenreID,
+                ArtistID =((Artist) comboBox2.SelectedItem).ArtistID,
             };
-            AlbumDAO.Insert(addAlbum);
+            if (AlbumDAO.Insert(addAlbum))
+            {
+                albumGUI.initialize();
+                Close();
+            }
         }
     }
 }

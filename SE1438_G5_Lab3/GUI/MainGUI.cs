@@ -12,13 +12,22 @@ namespace SE1438_G5_Lab3.GUI
 {
     public partial class MainGUI : Form
     {
-        public MainGUI()
+        private static MainGUI instance;
+
+        private MainGUI()
         {
             InitializeComponent();
             displayMenu();
-
-
         }
+
+        public static MainGUI GetMainGui()
+        {
+            if (instance == null)
+                instance = new MainGUI();
+
+            return instance;
+        }
+
         private void Embed(Panel p, Form f)
         {
             p.Controls.Clear();

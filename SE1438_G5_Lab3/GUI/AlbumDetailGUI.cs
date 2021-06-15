@@ -52,6 +52,8 @@ namespace SE1438_G5_Lab3.GUI
             if(album != null)
             {
                 ShoppingCartDAO.GetCart().AddToCart(album.AlbumID);
+
+                MainGUI.GetMainGui().displayMenu();
                 //CartGUI cart = new CartGUI();
                 //cart.ShowDialog();
                 MessageBox.Show("Add to cart completed!");

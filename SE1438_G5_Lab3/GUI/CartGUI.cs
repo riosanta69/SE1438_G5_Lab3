@@ -56,6 +56,7 @@ namespace SE1438_G5_Lab3.GUI
                 int albumID = (int)dataGridView1.Rows[e.RowIndex].Cells["AlbumID"].Value;
                 ShoppingCartDAO.GetCart().RemoveFromCart(albumID);
                 bindDataGridView1();
+                MainGUI.GetMainGui().displayMenu();
             } else if(e.ColumnIndex == dataGridView1.Columns["Detail"].Index)
             {
                 int albumID = (int)dataGridView1.Rows[e.RowIndex].Cells["albumID"].Value;

@@ -16,12 +16,19 @@ namespace SE1438_G5_Lab3.GUI
         public AlbumGUI()
         {
             InitializeComponent();
-            dataGridView1.DataSource = AlbumDAO.GetAlbums();
+
+            initialize();
 
             bindGrid1();
             bindGrid2();
             bindGrid3();
         }
+
+        public void initialize()
+        {
+            dataGridView1.DataSource = AlbumDAO.GetAlbums();
+        }
+
         private void bindGrid1()
         {
             DataGridViewButtonColumn btnDetail = new DataGridViewButtonColumn()
@@ -62,6 +69,8 @@ namespace SE1438_G5_Lab3.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             AlbumAddGUI a = new AlbumAddGUI();
+            a.setAlbumGUI(this);
+
             a.ShowDialog();
         }
 
@@ -81,7 +90,7 @@ namespace SE1438_G5_Lab3.GUI
                     if (count == true)
                     {
                         MessageBox.Show("Delete complete !");
-
+                        initialize();
                     }
                     else
                         MessageBox.Show("Can not delete this album!");
@@ -102,6 +111,7 @@ namespace SE1438_G5_Lab3.GUI
                 Genre genre = genres.Find(g => g.GenreID == album.GenreID);
                 Artist artist = artists.Find(a => a.ArtistID == album.ArtistID);
                 AlbumAddGUI newform = new AlbumAddGUI(album,genre,artist);
+                newform.setAlbumGUI(this);
                 newform.ShowDialog();
             }
 
