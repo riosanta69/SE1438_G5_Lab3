@@ -34,11 +34,11 @@ namespace SE1438_G5_Lab3.GUI
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtFrom = new System.Windows.Forms.TextBox();
+            this.txtTo = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.txtCountry = new System.Windows.Forms.TextBox();
+            this.btnFilter = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
@@ -91,45 +91,45 @@ namespace SE1438_G5_Lab3.GUI
             this.label4.TabIndex = 4;
             this.label4.Text = "Country:";
             // 
-            // textBox1
+            // txtFrom
             // 
-            this.textBox1.Location = new System.Drawing.Point(69, 211);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(148, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtFrom.Location = new System.Drawing.Point(69, 211);
+            this.txtFrom.Name = "txtFrom";
+            this.txtFrom.ReadOnly = true;
+            this.txtFrom.Size = new System.Drawing.Size(148, 20);
+            this.txtFrom.TabIndex = 5;
             // 
-            // textBox2
+            // txtTo
             // 
-            this.textBox2.Location = new System.Drawing.Point(69, 255);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(148, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtTo.Location = new System.Drawing.Point(69, 255);
+            this.txtTo.Name = "txtTo";
+            this.txtTo.ReadOnly = true;
+            this.txtTo.Size = new System.Drawing.Size(148, 20);
+            this.txtTo.TabIndex = 6;
             // 
-            // textBox3
+            // txtFirstName
             // 
-            this.textBox3.Location = new System.Drawing.Point(69, 302);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(148, 20);
-            this.textBox3.TabIndex = 7;
+            this.txtFirstName.Location = new System.Drawing.Point(69, 302);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(148, 20);
+            this.txtFirstName.TabIndex = 7;
             // 
-            // textBox4
+            // txtCountry
             // 
-            this.textBox4.Location = new System.Drawing.Point(69, 349);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(148, 20);
-            this.textBox4.TabIndex = 8;
+            this.txtCountry.Location = new System.Drawing.Point(69, 349);
+            this.txtCountry.Name = "txtCountry";
+            this.txtCountry.Size = new System.Drawing.Size(148, 20);
+            this.txtCountry.TabIndex = 8;
             // 
-            // button1
+            // btnFilter
             // 
-            this.button1.Location = new System.Drawing.Point(69, 390);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Filter";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnFilter.Location = new System.Drawing.Point(69, 390);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(75, 23);
+            this.btnFilter.TabIndex = 9;
+            this.btnFilter.Text = "Filter";
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -185,11 +185,11 @@ namespace SE1438_G5_Lab3.GUI
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnFilter);
+            this.Controls.Add(this.txtCountry);
+            this.Controls.Add(this.txtFirstName);
+            this.Controls.Add(this.txtTo);
+            this.Controls.Add(this.txtFrom);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -211,11 +211,11 @@ namespace SE1438_G5_Lab3.GUI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtFrom;
+        private System.Windows.Forms.TextBox txtTo;
+        private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.TextBox txtCountry;
+        private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label5;

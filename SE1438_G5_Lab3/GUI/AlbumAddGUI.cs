@@ -36,11 +36,11 @@ namespace SE1438_G5_Lab3.GUI
             List<Genre> genres = (List<Genre>)GenreDAO.GetGenres();
             List<Artist> artists = (List<Artist>)ArtistDAO.GetArtists();
 
-            comboBox1.DataSource = genres;
-            comboBox1.DisplayMember = "Name";
+            cboGenre.DataSource = genres;
+            cboGenre.DisplayMember = "Name";
 
-            comboBox2.DataSource = artists;
-            comboBox2.DisplayMember = "Name";
+            cboArtist.DataSource = artists;
+            cboArtist.DisplayMember = "Name";
 
             mode = "add";
         }
@@ -54,18 +54,18 @@ namespace SE1438_G5_Lab3.GUI
             this.album = album;
             this.genre = genre;
             this.artist = artist;
-            textBox1.Text = album.Title;
+            txtTitle.Text = album.Title;
 
-            comboBox1.DataSource = genres;
-            comboBox1.DisplayMember = "Name";
-            comboBox1.SelectedIndex = comboBox1.FindStringExact(genre.Name);
+            cboGenre.DataSource = genres;
+            cboGenre.DisplayMember = "Name";
+            cboGenre.SelectedIndex = cboGenre.FindStringExact(genre.Name);
 
-            comboBox2.DataSource = artists;
-            comboBox2.DisplayMember = "Name";
-            comboBox2.SelectedIndex = comboBox2.FindStringExact(artist.Name);
+            cboArtist.DataSource = artists;
+            cboArtist.DisplayMember = "Name";
+            cboArtist.SelectedIndex = cboArtist.FindStringExact(artist.Name);
 
-            textBox2.Text = album.Price.ToString();
-            textBox3.Text = album.AlbumUrl;
+            txtPrice.Text = album.Price.ToString();
+            txtAlbumUrl.Text = album.AlbumUrl;
 
             mode = "edit";
             String path = album.AlbumUrl.Replace('/', '\\');
@@ -108,7 +108,7 @@ namespace SE1438_G5_Lab3.GUI
                 string filename = Guid.NewGuid().ToString() + ext;
                 string fileDest = getProjectPath() + "\\Images\\" + filename;
                 File.Copy(opf.FileName, fileDest);
-                textBox3.Text = "/Images/" + filename;
+                txtAlbumUrl.Text = "/Images/" + filename;
                 pictureBox1.Image = Image.FromFile(fileDest);
             }
 
@@ -137,17 +137,17 @@ namespace SE1438_G5_Lab3.GUI
         private void AlbumAddGUI_Load(object sender, EventArgs e)
         {
             if(mode.Equals("add"))
-                button2.Click += addEvent;
+                btnSave.Click += addEvent;
             if(mode.Equals("edit"))
-                button2.Click += editEvent;
+                btnSave.Click += editEvent;
         }
 
         private void editEvent(object sender, EventArgs e)
         {
 
-            album.Title = textBox1.Text;
-            album.Price = double.Parse(textBox2.Text);
-            album.AlbumUrl = textBox3.Text;
+            album.Title = txtTitle.Text;
+            album.Price = double.Parse(txtPrice.Text);
+            album.AlbumUrl = txtAlbumUrl.Text;
 
             if (AlbumDAO.Update(album)) {
                 albumGUI.initialize();
@@ -159,11 +159,11 @@ namespace SE1438_G5_Lab3.GUI
         {
             Album addAlbum = new Album()
             {
-                Title = textBox1.Text,
-                Price = double.Parse(textBox2.Text),
-                AlbumUrl = textBox3.Text,
-                GenreID = ((Genre) comboBox1.SelectedItem).GenreID,
-                ArtistID =((Artist) comboBox2.SelectedItem).ArtistID,
+                Title = txtTitle.Text,
+                Price = double.Parse(txtPrice.Text),
+                AlbumUrl = txtAlbumUrl.Text,
+                GenreID = ((Genre) cboGenre.SelectedItem).GenreID,
+                ArtistID =((Artist) cboArtist.SelectedItem).ArtistID,
             };
             if (AlbumDAO.Insert(addAlbum))
             {

@@ -23,7 +23,7 @@ namespace SE1438_G5_Lab3.GUI
         {
             var cart = ShoppingCartDAO.GetCart();
             var cartItems = cart.GetCartItems();
-            textBox1.Text = String.Format("{0:0.00}", cart.GetTotal());
+            txtTotal.Text = String.Format("{0:0.00}", cart.GetTotal());
             dataGridView1.Columns.Clear();
             dataGridView1.DataSource = cartItems;
             dataGridView1.Columns["RecordID"].Visible = false;

@@ -21,10 +21,10 @@ namespace SE1438_G5_Lab3.GUI
             InitializeComponent();
             album = AlbumDAO.GetAlbumByID(albumID);
 
-            textBox1.Text = album.Title;
-            textBox2.Text = album.Price.ToString();
-            textBox3.Text = ArtistDAO.GetArtistByID(album.ArtistID).Name;
-            textBox4.Text = GenreDAO.GetGenreByID(album.GenreID).Name;
+            txtTitle.Text = album.Title;
+            txtPrice.Text = album.Price.ToString();
+            txtArtist.Text = ArtistDAO.GetArtistByID(album.ArtistID).Name;
+            txtGenre.Text = GenreDAO.GetGenreByID(album.GenreID).Name;
             String path = album.AlbumUrl.Replace('/', '\\');
             pictureBox1.Image = Image.FromFile(getProjectPath() + path);
 

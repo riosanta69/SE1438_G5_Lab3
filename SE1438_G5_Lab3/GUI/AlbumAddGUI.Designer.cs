@@ -34,14 +34,14 @@ namespace SE1438_G5_Lab3.GUI
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtAlbumUrl = new System.Windows.Forms.TextBox();
+            this.cboGenre = new System.Windows.Forms.ComboBox();
+            this.cboArtist = new System.Windows.Forms.ComboBox();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -91,75 +91,75 @@ namespace SE1438_G5_Lab3.GUI
             this.label5.TabIndex = 4;
             this.label5.Text = "Album URL:";
             // 
-            // textBox1
+            // txtTitle
             // 
-            this.textBox1.Location = new System.Drawing.Point(188, 83);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtTitle.Location = new System.Drawing.Point(188, 83);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(154, 20);
+            this.txtTitle.TabIndex = 5;
             // 
-            // textBox2
+            // txtPrice
             // 
-            this.textBox2.Location = new System.Drawing.Point(188, 241);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtPrice.Location = new System.Drawing.Point(188, 241);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(100, 20);
+            this.txtPrice.TabIndex = 6;
             // 
-            // textBox3
+            // txtAlbumUrl
             // 
-            this.textBox3.Location = new System.Drawing.Point(188, 288);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(154, 20);
-            this.textBox3.TabIndex = 7;
+            this.txtAlbumUrl.Location = new System.Drawing.Point(188, 288);
+            this.txtAlbumUrl.Name = "txtAlbumUrl";
+            this.txtAlbumUrl.ReadOnly = true;
+            this.txtAlbumUrl.Size = new System.Drawing.Size(154, 20);
+            this.txtAlbumUrl.TabIndex = 7;
             // 
-            // comboBox1
+            // cboGenre
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(188, 136);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(154, 21);
-            this.comboBox1.TabIndex = 8;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cboGenre.FormattingEnabled = true;
+            this.cboGenre.Location = new System.Drawing.Point(188, 136);
+            this.cboGenre.Name = "cboGenre";
+            this.cboGenre.Size = new System.Drawing.Size(154, 21);
+            this.cboGenre.TabIndex = 8;
+            this.cboGenre.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // comboBox2
+            // cboArtist
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(188, 191);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(154, 21);
-            this.comboBox2.TabIndex = 9;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.cboArtist.FormattingEnabled = true;
+            this.cboArtist.Location = new System.Drawing.Point(188, 191);
+            this.cboArtist.Name = "cboArtist";
+            this.cboArtist.Size = new System.Drawing.Size(154, 21);
+            this.cboArtist.TabIndex = 9;
+            this.cboArtist.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // button1
+            // btnSelect
             // 
-            this.button1.Location = new System.Drawing.Point(437, 288);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Select file... ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSelect.Location = new System.Drawing.Point(437, 288);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(180, 23);
+            this.btnSelect.TabIndex = 10;
+            this.btnSelect.Text = "Select file... ";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnSave
             // 
-            this.button2.Location = new System.Drawing.Point(213, 383);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Save";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSave.Location = new System.Drawing.Point(213, 383);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 11;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnCancel
             // 
-            this.button3.Location = new System.Drawing.Point(404, 383);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Cancel";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnCancel.Location = new System.Drawing.Point(404, 383);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 12;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictureBox1
             // 
@@ -176,14 +176,14 @@ namespace SE1438_G5_Lab3.GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnSelect);
+            this.Controls.Add(this.cboArtist);
+            this.Controls.Add(this.cboGenre);
+            this.Controls.Add(this.txtAlbumUrl);
+            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -205,14 +205,14 @@ namespace SE1438_G5_Lab3.GUI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox txtTitle;
+        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.TextBox txtAlbumUrl;
+        private System.Windows.Forms.ComboBox cboGenre;
+        private System.Windows.Forms.ComboBox cboArtist;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -28,8 +28,8 @@ namespace SE1438_G5_Lab3.GUI
         {
             if(e.RowIndex >= 0)
             {
-                textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells["FirstName"].Value.ToString();
-                textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells["Country"].Value.ToString();
+                txtFirstName.Text = dataGridView1.Rows[e.RowIndex].Cells["FirstName"].Value.ToString();
+                txtCountry.Text = dataGridView1.Rows[e.RowIndex].Cells["Country"].Value.ToString();
                 int selectedOrderID = (int)dataGridView1.Rows[e.RowIndex].Cells["OrderId"].Value;
 
                 DataRow[] dataRows = orderDetailTable.Select("OrderId = " + selectedOrderID);
@@ -48,24 +48,24 @@ namespace SE1438_G5_Lab3.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             SelectionRange sr = new SelectionRange();
-            sr.Start = DateTime.Parse(this.textBox1.Text);
-            sr.End = DateTime.Parse(this.textBox2.Text);
+            sr.Start = DateTime.Parse(this.txtFrom.Text);
+            sr.End = DateTime.Parse(this.txtTo.Text);
             this.monthCalendar1.SelectionRange = sr;
             FillData();
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            this.textBox1.Text = monthCalendar1.SelectionRange.Start.Date.ToShortDateString();
-            this.textBox2.Text = monthCalendar1.SelectionRange.End.Date.ToShortDateString();
+            this.txtFrom.Text = monthCalendar1.SelectionRange.Start.Date.ToShortDateString();
+            this.txtTo.Text = monthCalendar1.SelectionRange.End.Date.ToShortDateString();
         }
         private void FillData()
         {
             SqlCommand cmd = new SqlCommand("select * from orders where orderDate between @sd and @ed and firstname like @fn and country like @c");
             cmd.Parameters.AddWithValue("@sd", monthCalendar1.SelectionStart);
             cmd.Parameters.AddWithValue("@ed",monthCalendar1.SelectionEnd);
-            cmd.Parameters.AddWithValue("@fn", "%" + textBox3.Text.Trim() + "%");
-            cmd.Parameters.AddWithValue("@c", "%" + textBox4.Text.Trim() + "%");
+            cmd.Parameters.AddWithValue("@fn", "%" + txtFirstName.Text.Trim() + "%");
+            cmd.Parameters.AddWithValue("@c", "%" + txtCountry.Text.Trim() + "%");
             dataGridView1.DataSource = DAO.GetDataTable(cmd);
         }
 

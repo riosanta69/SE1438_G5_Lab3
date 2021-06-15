@@ -41,20 +41,20 @@ namespace SE1438_G5_Lab3.GUI
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnOrder = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtUseName = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtCity = new System.Windows.Forms.TextBox();
+            this.txtState = new System.Windows.Forms.TextBox();
+            this.txtCountry = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtCode = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -166,25 +166,25 @@ namespace SE1438_G5_Lab3.GUI
             this.label12.TabIndex = 11;
             this.label12.Text = "We\'re running a promtion: all musics is free with the promo code: \"FREE\"";
             // 
-            // button1
+            // btnOrder
             // 
-            this.button1.Location = new System.Drawing.Point(156, 596);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Order";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnOrder.Location = new System.Drawing.Point(156, 596);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(75, 23);
+            this.btnOrder.TabIndex = 12;
+            this.btnOrder.Text = "Order";
+            this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Location = new System.Drawing.Point(507, 596);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCancel.Location = new System.Drawing.Point(507, 596);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 13;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.button2_Click);
             // 
             // dateTimePicker1
             // 
@@ -193,85 +193,85 @@ namespace SE1438_G5_Lab3.GUI
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 14;
             // 
-            // textBox1
+            // txtUseName
             // 
-            this.textBox1.Location = new System.Drawing.Point(258, 73);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 15;
+            this.txtUseName.Location = new System.Drawing.Point(258, 73);
+            this.txtUseName.Name = "txtUseName";
+            this.txtUseName.ReadOnly = true;
+            this.txtUseName.Size = new System.Drawing.Size(200, 20);
+            this.txtUseName.TabIndex = 15;
             // 
-            // textBox2
+            // txtFirstName
             // 
-            this.textBox2.Location = new System.Drawing.Point(258, 119);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 20);
-            this.textBox2.TabIndex = 16;
+            this.txtFirstName.Location = new System.Drawing.Point(258, 119);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(200, 20);
+            this.txtFirstName.TabIndex = 16;
             // 
-            // textBox3
+            // txtLastName
             // 
-            this.textBox3.Location = new System.Drawing.Point(258, 167);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 20);
-            this.textBox3.TabIndex = 17;
+            this.txtLastName.Location = new System.Drawing.Point(258, 167);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(200, 20);
+            this.txtLastName.TabIndex = 17;
             // 
-            // textBox4
+            // txtAddress
             // 
-            this.textBox4.Location = new System.Drawing.Point(258, 213);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 20);
-            this.textBox4.TabIndex = 18;
+            this.txtAddress.Location = new System.Drawing.Point(258, 213);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(200, 20);
+            this.txtAddress.TabIndex = 18;
             // 
-            // textBox5
+            // txtCity
             // 
-            this.textBox5.Location = new System.Drawing.Point(258, 258);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 20);
-            this.textBox5.TabIndex = 19;
+            this.txtCity.Location = new System.Drawing.Point(258, 258);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(200, 20);
+            this.txtCity.TabIndex = 19;
             // 
-            // textBox6
+            // txtState
             // 
-            this.textBox6.Location = new System.Drawing.Point(258, 304);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(200, 20);
-            this.textBox6.TabIndex = 20;
+            this.txtState.Location = new System.Drawing.Point(258, 304);
+            this.txtState.Name = "txtState";
+            this.txtState.Size = new System.Drawing.Size(200, 20);
+            this.txtState.TabIndex = 20;
             // 
-            // textBox7
+            // txtCountry
             // 
-            this.textBox7.Location = new System.Drawing.Point(258, 346);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(200, 20);
-            this.textBox7.TabIndex = 21;
+            this.txtCountry.Location = new System.Drawing.Point(258, 346);
+            this.txtCountry.Name = "txtCountry";
+            this.txtCountry.Size = new System.Drawing.Size(200, 20);
+            this.txtCountry.TabIndex = 21;
             // 
-            // textBox8
+            // txtPhone
             // 
-            this.textBox8.Location = new System.Drawing.Point(258, 387);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(200, 20);
-            this.textBox8.TabIndex = 22;
+            this.txtPhone.Location = new System.Drawing.Point(258, 387);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(200, 20);
+            this.txtPhone.TabIndex = 22;
             // 
-            // textBox9
+            // txtEmail
             // 
-            this.textBox9.Location = new System.Drawing.Point(258, 424);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(200, 20);
-            this.textBox9.TabIndex = 23;
+            this.txtEmail.Location = new System.Drawing.Point(258, 424);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(200, 20);
+            this.txtEmail.TabIndex = 23;
             // 
-            // textBox10
+            // txtTotal
             // 
-            this.textBox10.Location = new System.Drawing.Point(258, 465);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(200, 20);
-            this.textBox10.TabIndex = 24;
+            this.txtTotal.Location = new System.Drawing.Point(258, 465);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(200, 20);
+            this.txtTotal.TabIndex = 24;
             // 
-            // textBox11
+            // txtCode
             // 
-            this.textBox11.Location = new System.Drawing.Point(258, 547);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(200, 20);
-            this.textBox11.TabIndex = 25;
+            this.txtCode.Location = new System.Drawing.Point(258, 547);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.ReadOnly = true;
+            this.txtCode.Size = new System.Drawing.Size(200, 20);
+            this.txtCode.TabIndex = 25;
             // 
             // label13
             // 
@@ -288,20 +288,20 @@ namespace SE1438_G5_Lab3.GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 646);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtCode);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtPhone);
+            this.Controls.Add(this.txtCountry);
+            this.Controls.Add(this.txtState);
+            this.Controls.Add(this.txtCity);
+            this.Controls.Add(this.txtAddress);
+            this.Controls.Add(this.txtLastName);
+            this.Controls.Add(this.txtFirstName);
+            this.Controls.Add(this.txtUseName);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -335,20 +335,20 @@ namespace SE1438_G5_Lab3.GUI
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnOrder;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtUseName;
+        private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.TextBox txtCity;
+        private System.Windows.Forms.TextBox txtState;
+        private System.Windows.Forms.TextBox txtCountry;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.Label label13;
     }
 }

@@ -23,7 +23,7 @@ namespace SE1438_G5_Lab3.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             var user = UserDAO.GetUsers()
-                .Where(u => u.UserName == textBox1.Text && u.Password == textBox2.Text)
+                .Where(u => u.UserName == txtUserName.Text && u.Password == txtPassword.Text)
                 .FirstOrDefault();
             if (user == null)
                 MessageBox.Show("User does not exist!");

@@ -29,22 +29,22 @@ namespace SE1438_G5_Lab3.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnCreate
             // 
-            this.button1.Location = new System.Drawing.Point(19, 59);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Create a new album";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCreate.Location = new System.Drawing.Point(19, 59);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(140, 23);
+            this.btnCreate.TabIndex = 0;
+            this.btnCreate.Text = "Create a new album";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -60,7 +60,7 @@ namespace SE1438_G5_Lab3.GUI
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnCreate);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -84,7 +84,7 @@ namespace SE1438_G5_Lab3.GUI
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
     }

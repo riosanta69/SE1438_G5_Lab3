@@ -101,7 +101,7 @@ namespace SE1438_G5_Lab3.GUI
             }
             var cart = ShoppingCartDAO.GetCart();
             string cartSummary = "Cart (" + cart.GetCount() + ")";
-            cartToolStripMenuItem1.Text = cartSummary;
+            cartToolStripMenuItem.Text = cartSummary;
         }
     }
 }
